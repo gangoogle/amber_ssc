@@ -1,27 +1,44 @@
 package com.butter.amberssc.ui.activity
 
+import android.content.Context
 import android.os.Bundle
-import android.support.design.widget.Snackbar
 import android.support.design.widget.NavigationView
+import android.support.design.widget.Snackbar
 import android.support.v4.view.GravityCompat
 import android.support.v7.app.ActionBarDrawerToggle
 import android.support.v7.app.AppCompatActivity
+import android.support.v7.widget.LinearLayoutManager
 import android.view.Menu
 import android.view.MenuItem
+import android.widget.Toast
 import com.butter.amberssc.R
+import com.butter.amberssc.adapter.RCLottertAdapter
+import com.butter.amberssc.data.getUrlList
+import com.butter.amberssc.model.CaiPiaoUrl
+import com.butter.amberssc.model.response.BaseResp
+import com.butter.amberssc.model.response.CaiPiaoResponse
+import com.butter.amberssc.net.Api
+import com.butter.amberssc.net.RetrofitNetHelper
+import com.butter.amberssc.ui.customview.LotteryTypePopView
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.app_bar_main.*
+import kotlinx.android.synthetic.main.content_main.*
 
 class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
+    lateinit var mContext: Context
 
+    lateinit var mCurrCaipiaoUrl: CaiPiaoUrl
+    lateinit var mCaipiaoUrlList: List<CaiPiaoUrl>
+    lateinit var mUrlPopView: LotteryTypePopView
+    val SIZE = 20
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        mContext = this
         setContentView(R.layout.activity_main)
         setSupportActionBar(toolbar)
 
         fab.setOnClickListener { view ->
-            Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                    .setAction("Action", null).show()
+            mUrlPopView.show(view)
         }
 
         val toggle = ActionBarDrawerToggle(
@@ -30,6 +47,33 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         toggle.syncState()
 
         nav_view.setNavigationItemSelectedListener(this)
+        init()
+    }
+
+    private fun init() {
+        mCaipiaoUrlList = getUrlList()
+        mCurrCaipiaoUrl = mCaipiaoUrlList[0]
+        //设置toolbar title
+        supportActionBar?.title = mCurrCaipiaoUrl.name
+        mUrlPopView = LotteryTypePopView(mContext, mCaipiaoUrlList)
+        reqquestLottery()
+    }
+
+    private fun reqquestLottery() {
+        val callResponse = RetrofitNetHelper.getInstance(mContext)
+                .getAPIService(Api::class.java)
+                .requestUrl("${mCurrCaipiaoUrl.url}-$SIZE.json")
+        RetrofitNetHelper.getInstance(mContext)
+                .enqueueCall(callResponse, object : RetrofitNetHelper.RetrofitCallBack<CaiPiaoResponse> {
+                    override fun onSuccess(baseResp: BaseResp<CaiPiaoResponse>) {
+                        rc_view.layoutManager = LinearLayoutManager(mContext)
+                        rc_view.adapter = RCLottertAdapter(mContext, baseResp.data)
+                    }
+
+                    override fun onFailure(error: String) {
+                        Snackbar.make(fab, "请求数据失败", Snackbar.LENGTH_SHORT).show()
+                    }
+                })
     }
 
     override fun onBackPressed() {
@@ -37,6 +81,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
             drawer_layout.closeDrawer(GravityCompat.START)
         } else {
             super.onBackPressed()
+            finish()
         }
     }
 

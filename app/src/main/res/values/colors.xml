@@ -2,7 +2,7 @@
 <resources>
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
-    <color name="colorAccent">#FF4081</color>
+    <color name="colorAccent">#24242c</color>
     <color name="colorMain">#FF4081</color>
     <color name="white">#ffffff</color><!--白色 -->
     <color name="sunny">#E5644C</color>
@@ -159,4 +159,12 @@
     <!--夜间模式相关颜色-->
     <color name="background">@android:color/white</color>
     <color name="night_background">#FF0E0E0E</color>
+
+    <color name="ub_gray">#b5b5b5</color>
+    <color name="ub_gray_a">#696969</color>
+    <color name="card_title">#4aa8a7</color>
+    <color name="card_title_a">#24242c</color>
+    <color name="list_red">#f06296</color>
+    <color name="list_violet">#9575cd</color>
+    <color name="list_blue">#64b5f6</color>
 </resources>

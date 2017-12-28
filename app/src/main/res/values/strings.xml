@@ -1,7 +1,7 @@
 <resources>
-    <string name="app_name">AmberSSC</string>
-    <string name="splash_text_top">Amber</string>
-    <string name="splash_text_bottom">SSC</string>
+    <string name="app_name">时时彩开奖查询</string>
+    <string name="splash_text_top">时时彩</string>
+    <string name="splash_text_bottom">实时助手</string>
     <string name="title_activity_main">MainActivity</string>
 
     <string name="navigation_drawer_open">Open navigation drawer</string>

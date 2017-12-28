@@ -71,7 +71,7 @@ public class TextShowView extends View {
         bPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
         bPaint.setFilterBitmap(true);
         bPaint.setDither(true);
-        bPaint.setColor(ContextCompat.getColor(mContext, R.color.colorMain));
+        bPaint.setColor(ContextCompat.getColor(mContext, R.color.card_title_a));
 
         //设置当前的高度
         mCurTop = mBitH / 2;

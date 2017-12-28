@@ -3,8 +3,8 @@
     <!-- Base application theme. -->
     <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
         <!-- Customize your theme here. -->
-        <item name="colorPrimary">@color/colorPrimary</item>
-        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorPrimary">@color/card_title_a</item>
+        <item name="colorPrimaryDark">@color/card_title_a</item>
         <item name="colorAccent">@color/colorAccent</item>
         <item name="windowNoTitle">true</item>
     </style>
@@ -27,5 +27,9 @@
 
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light"/>
 
+    <style name="UrlPopAnimStyle">
+        <item name="android:windowEnterAnimation">@anim/anim_url_pop_in</item>
+        <item name="android:windowExitAnimation">@anim/anim_url_pop_out</item>
+    </style>
 
 </resources>

@@ -6,7 +6,7 @@ package com.butter.amberssc.model.response;
 
 public class CaiPiaoResponse {
     private String expect;
-    private String openCode;
+    private String opencode;
     private String opentime;
     private String opentimestamp;
 
@@ -19,11 +19,11 @@ public class CaiPiaoResponse {
     }
 
     public String getOpenCode() {
-        return openCode;
+        return opencode;
     }
 
     public void setOpenCode(String openCode) {
-        this.openCode = openCode;
+        this.opencode = openCode;
     }
 
     public String getOpentime() {

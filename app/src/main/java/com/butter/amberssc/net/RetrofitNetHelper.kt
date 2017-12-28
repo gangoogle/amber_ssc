@@ -30,7 +30,7 @@ class RetrofitNetHelper private constructor(val context: Context) {
     private var cache: Cache? = null
 
     companion object {
-        var mInstance: RetrofitNetHelper? = null
+        private  var mInstance: RetrofitNetHelper? = null
 
         fun getInstance(context: Context): RetrofitNetHelper {
             if (mInstance == null) {

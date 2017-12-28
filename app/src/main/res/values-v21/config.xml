@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--筛选控件-->
+    <integer name="IntURLAnimDuration">500</integer>
+    <integer name="IntFilterLayoutWidthSacle">9</integer>
+    <!--百分比弧形进度条-->
+    <integer name="IntArchPercentStrokeWidth">10</integer>
+</resources>
