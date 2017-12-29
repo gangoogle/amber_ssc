@@ -30,7 +30,7 @@ class RetrofitNetHelper private constructor(val context: Context) {
     private var cache: Cache? = null
 
     companion object {
-        private  var mInstance: RetrofitNetHelper? = null
+        private var mInstance: RetrofitNetHelper? = null
 
         fun getInstance(context: Context): RetrofitNetHelper {
             if (mInstance == null) {
@@ -93,7 +93,9 @@ class RetrofitNetHelper private constructor(val context: Context) {
             override fun onResponse(call: Call<BaseResp<D>>, response: Response<BaseResp<D>>) {
                 val resp = response.body()
                 if (resp == null) {
-                    Toast.makeText(context, "暂时没有最新数据!", Toast.LENGTH_SHORT).show()
+                    if (retrofitCallBack != null) {
+                        retrofitCallBack!!.onFailure("暂无数据")
+                    }
                     return
                 }
                 if (retrofitCallBack != null) {

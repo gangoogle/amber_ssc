@@ -1,6 +1,7 @@
 package com.butter.amberssc.ui.activity
 
 import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import android.support.design.widget.NavigationView
 import android.support.design.widget.Snackbar
@@ -56,6 +57,14 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         //设置toolbar title
         supportActionBar?.title = mCurrCaipiaoUrl.name
         mUrlPopView = LotteryTypePopView(mContext, mCaipiaoUrlList)
+        //设置监听器
+        mUrlPopView.setOnItemClickListener(object : LotteryTypePopView.OnItemClickListener {
+            override fun onClick(position: Int) {
+                mCurrCaipiaoUrl = mCaipiaoUrlList[position]
+                supportActionBar?.title = mCurrCaipiaoUrl.name
+                reqquestLottery()
+            }
+        })
         reqquestLottery()
     }
 
@@ -71,7 +80,8 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
                     }
 
                     override fun onFailure(error: String) {
-                        Snackbar.make(fab, "请求数据失败", Snackbar.LENGTH_SHORT).show()
+                        rc_view.adapter = RCLottertAdapter(mContext, arrayListOf<CaiPiaoResponse>())
+                        Snackbar.make(fab, error, Snackbar.LENGTH_SHORT).show()
                     }
                 })
     }
@@ -96,7 +106,10 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
         when (item.itemId) {
-            R.id.action_settings -> return true
+            R.id.action_settings -> {
+                startActivity(Intent(mContext, About::class.java))
+                return true
+            }
             else -> return super.onOptionsItemSelected(item)
         }
     }
@@ -105,22 +118,25 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         // Handle navigation view item clicks here.
         when (item.itemId) {
             R.id.nav_camera -> {
-                // Handle the camera action
+                startActivity(Intent(mContext, DoubleBall50::class.java))
             }
             R.id.nav_gallery -> {
-
+                startActivity(Intent(mContext, DoubleBallKnow::class.java))
             }
             R.id.nav_slideshow -> {
-
+                startActivity(Intent(mContext, DoubleBallHandle::class.java))
             }
-            R.id.nav_manage -> {
-
+            R.id.nav_rules -> {
+                startActivity(Intent(mContext, DoubleBallRules::class.java))
             }
-            R.id.nav_share -> {
-
+            R.id.nav_happy -> {
+                startActivity(Intent(mContext, DoubleBallHappy::class.java))
             }
-            R.id.nav_send -> {
-
+            R.id.nav_cqssc -> {
+                startActivity(Intent(mContext, WebQCssc::class.java))
+            }
+            R.id.nav_dlt -> {
+                startActivity(Intent(mContext, WebDLT::class.java))
             }
         }
 

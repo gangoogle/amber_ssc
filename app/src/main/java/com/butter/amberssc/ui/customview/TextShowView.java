@@ -57,7 +57,7 @@ public class TextShowView extends View {
         mPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
         mPaint.setFilterBitmap(true);
         mPaint.setDither(true);
-        mPaint.setColor(ContextCompat.getColor(mContext, R.color.whitesmoke));
+        mPaint.setColor(ContextCompat.getColor(mContext, R.color.colorMain));
         String familyName = "宋体";
         Typeface font = Typeface.create(familyName, Typeface.BOLD);
         mPaint.setTypeface(font);

@@ -18,8 +18,9 @@ import kotlinx.android.synthetic.main.view_lottery_url_pop.view.*
  */
 
 class LotteryTypePopView(val context: Context, val caipiaoUrls: List<CaiPiaoUrl>) {
-    lateinit var mPopview: PopupWindow
-    lateinit var mView: View
+    private lateinit var mPopview: PopupWindow
+    private lateinit var mView: View
+    private var mOnItemClickListener: OnItemClickListener? = null
 
     init {
         initPop()
@@ -31,7 +32,7 @@ class LotteryTypePopView(val context: Context, val caipiaoUrls: List<CaiPiaoUrl>
         val screenWidth = getScreenWH(context)[0]
         val screenHeight = getScreenWH(context)[1]
         mView = View.inflate(context, R.layout.view_lottery_url_pop, null)
-        mPopview = PopupWindow(mView, screenWidth/2, (screenHeight/1.5).toInt(), true)
+        mPopview = PopupWindow(mView, screenWidth / 2, (screenHeight / 1.5).toInt(), true)
         val dw = ColorDrawable(Color.TRANSPARENT)
         mPopview?.setBackgroundDrawable(dw)
         mPopview?.animationStyle = R.style.UrlPopAnimStyle
@@ -39,7 +40,14 @@ class LotteryTypePopView(val context: Context, val caipiaoUrls: List<CaiPiaoUrl>
 
     private fun setData() {
         mView?.rc_lottery_url.layoutManager = LinearLayoutManager(context)
-        mView?.rc_lottery_url?.adapter = RCLotteryNameAdapter(context, caipiaoUrls)
+        val adapter = RCLotteryNameAdapter(context, caipiaoUrls)
+        mView?.rc_lottery_url?.adapter = adapter
+        adapter.setOnItemClickListener(object : RCLotteryNameAdapter.OnItemClickListener {
+            override fun onClick(position: Int) {
+                mOnItemClickListener?.onClick(position)
+            }
+        })
+
     }
 
     fun show(view: View) {
@@ -53,6 +61,14 @@ class LotteryTypePopView(val context: Context, val caipiaoUrls: List<CaiPiaoUrl>
         val width = wm.defaultDisplay.width
         val heigh = wm.defaultDisplay.height
         return arrayOf(width, heigh)
+    }
+
+    fun setOnItemClickListener(onItemClickListener: OnItemClickListener) {
+        this.mOnItemClickListener = onItemClickListener
+    }
+
+    interface OnItemClickListener {
+        fun onClick(position: Int)
     }
 
 }
