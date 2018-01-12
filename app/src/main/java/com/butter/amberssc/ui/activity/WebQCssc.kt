@@ -18,7 +18,7 @@ class WebQCssc : AppCompatActivity() {
         fab.setOnClickListener { view ->
             finish()
         }
-        webview.loadHtml("重庆时时彩走势图_重庆时时彩基本走势图-网易彩票.html")
+        webview.loadHtml("chongqingshishicai.html")
     }
 
 }

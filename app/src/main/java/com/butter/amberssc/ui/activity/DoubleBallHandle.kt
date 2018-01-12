@@ -18,7 +18,7 @@ class DoubleBallHandle : AppCompatActivity() {
         fab.setOnClickListener { view ->
            finish()
         }
-        webview.loadHtml("双色球数据分析：和值分布及走势图.html")
+        webview.loadHtml("kuai3.html")
     }
 
 }
