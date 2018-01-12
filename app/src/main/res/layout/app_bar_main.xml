@@ -25,7 +25,7 @@
 
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/fab"
-        android:backgroundTint="@color/card_title_a"
+        app:backgroundTint="@color/card_title_a"
         app:rippleColor="@color/whitesmoke"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

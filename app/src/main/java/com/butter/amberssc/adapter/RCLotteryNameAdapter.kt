@@ -18,11 +18,11 @@ class RCLotteryNameAdapter(val context: Context, val urls: List<CaiPiaoUrl>) : R
 
     override fun onBindViewHolder(holder: ViewHolder?, position: Int) {
         holder?.view?.tv_lottery_name?.text = urls[position].name
-        when (position % 3) {
-            2 -> holder?.view?.tv_lottery_name?.setBackgroundColor(context.resources.getColor(R.color.list_red))
-            1 -> holder?.view?.tv_lottery_name?.setBackgroundColor(context.resources.getColor(R.color.list_violet))
-            0 -> holder?.view?.tv_lottery_name?.setBackgroundColor(context.resources.getColor(R.color.list_blue))
-        }
+//        when (position % 3) {
+//            2 -> holder?.view?.tv_lottery_name?.setBackgroundColor(context.resources.getColor(R.color.list_red))
+//            1 -> holder?.view?.tv_lottery_name?.setBackgroundColor(context.resources.getColor(R.color.list_violet))
+//            0 -> holder?.view?.tv_lottery_name?.setBackgroundColor(context.resources.getColor(R.color.list_blue))
+//        }
         holder?.view?.tv_lottery_name?.setOnClickListener {
             mOnItemClickListener?.onClick(position)
         }

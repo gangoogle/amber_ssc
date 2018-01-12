@@ -25,7 +25,7 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@color/card_title_a"
+                android:background="#b8152d"
                 android:orientation="horizontal"
                 android:padding="5dp">
 
@@ -91,7 +91,7 @@
                     android:gravity="center"
                     android:singleLine="true"
                     android:text="5 8 9 7 4"
-                    android:textColor="@color/black"
+                    android:textColor="#b8152d"
                     android:textSize="20sp"
                     android:textStyle="bold"/>
             </LinearLayout>

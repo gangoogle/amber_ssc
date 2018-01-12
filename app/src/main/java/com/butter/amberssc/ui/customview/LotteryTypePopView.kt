@@ -33,7 +33,7 @@ class LotteryTypePopView(val context: Context, val caipiaoUrls: List<CaiPiaoUrl>
         val screenHeight = getScreenWH(context)[1]
         mView = View.inflate(context, R.layout.view_lottery_url_pop, null)
         mPopview = PopupWindow(mView, screenWidth / 2, (screenHeight / 1.5).toInt(), true)
-        val dw = ColorDrawable(Color.TRANSPARENT)
+        val dw = ColorDrawable(Color.WHITE)
         mPopview?.setBackgroundDrawable(dw)
         mPopview?.animationStyle = R.style.UrlPopAnimStyle
     }

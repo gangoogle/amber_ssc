@@ -1,6 +1,6 @@
 <resources>
-    <string name="app_name">彩票开奖宝典</string>
-    <string name="splash_text_top">彩票开奖</string>
+    <string name="app_name">时时彩开奖宝典</string>
+    <string name="splash_text_top">时时彩开奖</string>
     <string name="splash_text_bottom">分析计划宝典 </string>
     <string name="title_activity_main">MainActivity</string>
 

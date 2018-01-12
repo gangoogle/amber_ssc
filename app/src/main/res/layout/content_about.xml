@@ -18,9 +18,11 @@
 
         <ImageView
             android:layout_marginTop="10dp"
-            android:layout_width="80dp"
-            android:layout_height="80dp"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginBottom="20dp"
             android:src="@mipmap/icon"/>
+
     </LinearLayout>
 
     <TextView
@@ -87,7 +89,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
-            android:text="butter"
+            android:text="北京智远腾达科技"
             android:textColor="@color/white"
             android:textSize="14sp"/>
     </RelativeLayout>
@@ -99,6 +101,37 @@
         android:paddingLeft="20dp"
         android:paddingRight="20dp"/>
 
+    <RelativeLayout
+        android:paddingTop="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/card_title_a"
+        android:paddingBottom="10dp"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="账号功能即将开放，敬请期待"
+            android:textColor="@color/white"
+            android:textSize="14sp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:text=""
+            android:textColor="@color/white"
+            android:textSize="14sp"/>
+    </RelativeLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/white"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"/>
     <RelativeLayout
         android:paddingTop="10dp"
         android:layout_width="match_parent"

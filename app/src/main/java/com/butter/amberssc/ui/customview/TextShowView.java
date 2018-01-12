@@ -3,6 +3,7 @@ package com.butter.amberssc.ui.customview;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
+import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.PorterDuff;
 import android.graphics.PorterDuffXfermode;
@@ -71,7 +72,7 @@ public class TextShowView extends View {
         bPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
         bPaint.setFilterBitmap(true);
         bPaint.setDither(true);
-        bPaint.setColor(ContextCompat.getColor(mContext, R.color.card_title_a));
+        bPaint.setColor( Color.parseColor("#dd5044"));
 
         //设置当前的高度
         mCurTop = mBitH / 2;
