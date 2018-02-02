@@ -1,17 +1,13 @@
 package com.butter.amberssc.net
 
 import okhttp3.Interceptor
-import okhttp3.Response
 import android.os.Looper
 import android.text.TextUtils
-import android.util.Log
-import android.widget.Toast
 import com.butter.amberssc.utils.LogUtils
 import rx.Observable
 import rx.android.schedulers.AndroidSchedulers
 import rx.functions.Action1
 import rx.functions.Func1
-import rx.internal.operators.OperatorReplay.observeOn
 
 
 /**

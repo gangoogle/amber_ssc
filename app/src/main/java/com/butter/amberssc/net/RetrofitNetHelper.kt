@@ -10,7 +10,6 @@ import retrofit2.converter.gson.GsonConverterFactory
 import java.io.IOException
 import java.io.File
 import java.util.concurrent.TimeUnit
-import android.widget.Toast
 import com.butter.amberssc.model.response.BaseResp
 import retrofit2.Call
 import retrofit2.Callback

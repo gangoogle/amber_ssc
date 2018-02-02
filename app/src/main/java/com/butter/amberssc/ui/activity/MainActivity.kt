@@ -11,7 +11,6 @@ import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.LinearLayoutManager
 import android.view.Menu
 import android.view.MenuItem
-import android.widget.Toast
 import com.butter.amberssc.R
 import com.butter.amberssc.adapter.RCLottertAdapter
 import com.butter.amberssc.data.getUrlList
@@ -131,9 +130,6 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
             }
             R.id.nav_happy -> {
                 startActivity(Intent(mContext, DoubleBallHappy::class.java))
-            }
-            R.id.nav_cqssc -> {
-                startActivity(Intent(mContext, WebQCssc::class.java))
             }
             R.id.nav_dlt -> {
                 startActivity(Intent(mContext, WebDLT::class.java))

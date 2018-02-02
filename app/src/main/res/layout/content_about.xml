@@ -56,7 +56,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
-            android:text="v1.1.0"
+            android:text="v1.11"
             android:textColor="@color/white"
             android:textSize="14sp"/>
     </RelativeLayout>
